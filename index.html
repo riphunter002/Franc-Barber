@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Franc Barber — Barbearia</title>
+  <meta name="description" content="Franc Barber — barbearia contemporânea. Agende seu horário em poucos cliques e confirme direto pelo WhatsApp." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="#hero" class="logo">FRANC<span>BARBER</span></a>
+
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="#servicos" class="nav-link">Serviços</a></li>
+          <li><a href="#sobre" class="nav-link">Equipe</a></li>
+          <li><a href="#agendamento" class="nav-link">Agendar</a></li>
+          <li><a href="#galeria" class="nav-link">Galeria</a></li>
+          <li><a href="#localizacao" class="nav-link">Localização</a></li>
+        </ul>
+        <a href="#agendamento" class="btn btn-accent nav-cta">Agendar horário</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="hero" class="hero">
+      <img
+        class="hero-bg"
+        src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1600&q=80"
+        alt=""
+        loading="eager"
+      />
+      <div class="hero-overlay"></div>
+      <div class="container hero-content fade-in">
+        <h1 class="hero-title">FRANC BARBER</h1>
+        <p class="hero-subtitle">Estilo, precisão e tradição em cada corte.</p>
+        <a href="#agendamento" class="btn btn-accent btn-lg">Agendar horário</a>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS: já com os dados reais (mesma fonte usada no agendamento) -->
+    <section id="servicos" class="section servicos fade-in">
+      <div class="container">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <p class="section-subtitle">O mesmo catálogo usado no agendamento logo abaixo.</p>
+        <div id="servicos-grid" class="servicos-grid">
+          <!-- gerado via JS a partir de SERVICES (agendamento.js) -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE / EQUIPE -->
+    <section id="sobre" class="section sobre fade-in">
+      <div class="container">
+        <h2 class="section-title">Sobre a Franc Barber</h2>
+        <p class="section-subtitle">
+          Desde 2016 unimos técnica clássica de barbearia com um ambiente moderno e descontraído.
+          Cada corte é feito sob medida — sem pressa, sem fórmula genérica.
+        </p>
+
+        <div class="equipe-grid">
+          <article class="barbeiro-card">
+            <img
+              class="barbeiro-foto"
+              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
+              alt="Retrato de Rafael Mendes, barbeiro"
+              loading="lazy"
+            />
+            <h3 class="barbeiro-nome">Rafael Mendes</h3>
+            <p class="barbeiro-especialidade">Cortes clássicos e navalha</p>
+          </article>
+
+          <article class="barbeiro-card">
+            <img
+              class="barbeiro-foto"
+              src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80"
+              alt="Retrato de Diego Alves, barbeiro"
+              loading="lazy"
+            />
+            <h3 class="barbeiro-nome">Diego Alves</h3>
+            <p class="barbeiro-especialidade">Degradês e estilos modernos</p>
+          </article>
+
+          <article class="barbeiro-card">
+            <img
+              class="barbeiro-foto"
+              src="https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=400&q=80"
+              alt="Retrato de Bruno Costa, barbeiro"
+              loading="lazy"
+            />
+            <h3 class="barbeiro-nome">Bruno Costa</h3>
+            <p class="barbeiro-especialidade">Especialista em barba</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- AGENDAMENTO: coração técnico do projeto -->
+    <section id="agendamento" class="section agendamento fade-in">
+      <div class="container">
+        <h2 class="section-title">Agende seu horário</h2>
+        <p class="section-subtitle">Escolha o serviço, a data e o horário disponível. Confirmamos direto no seu WhatsApp.</p>
+
+        <form id="form-agendamento" class="agendamento-form" novalidate>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="input-name">1. Seu nome</label>
+              <input type="text" id="input-name" name="name" placeholder="Ex: João Silva" autocomplete="name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="input-phone">Seu WhatsApp</label>
+              <input type="tel" id="input-phone" name="phone" placeholder="(11) 91234-5678" autocomplete="tel" inputmode="numeric" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <span class="form-label">2. Escolha o serviço</span>
+            <div id="service-options" class="service-options" role="radiogroup" aria-label="Serviços disponíveis">
+              <!-- gerado via JS -->
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="input-date">3. Escolha a data</label>
+            <input type="date" id="input-date" name="date" class="input-date" required />
+          </div>
+
+          <div class="form-group">
+            <span class="form-label">4. Escolha o horário</span>
+            <div id="time-slots" class="time-slots" role="radiogroup" aria-label="Horários disponíveis">
+              <p class="time-slots-placeholder">Escolha um serviço para ver os horários.</p>
+            </div>
+          </div>
+
+          <div id="booking-summary" class="booking-summary" hidden></div>
+
+          <button type="submit" id="btn-confirm" class="btn btn-accent btn-lg btn-block" disabled>
+            Confirmar agendamento
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section id="galeria" class="section galeria fade-in">
+      <div class="container">
+        <h2 class="section-title">Galeria</h2>
+        <p class="section-subtitle">Um pouco do nosso ambiente e do nosso trabalho.</p>
+
+        <div class="galeria-grid">
+          <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=75" alt="Barbeiro aparando a barba de um cliente" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=75" alt="Detalhe de corte degradê com pente" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=75" alt="Corte de cabelo com tesoura" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=600&q=75" alt="Ferramentas de barbearia sobre a bancada" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?auto=format&fit=crop&w=600&q=75" alt="Acabamento na nuca com máquina" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1541533848490-bc8115cd6522?auto=format&fit=crop&w=600&q=75" alt="Barbeiro finalizando corte lateral" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section id="depoimentos" class="section depoimentos fade-in">
+      <div class="container">
+        <h2 class="section-title">O que dizem nossos clientes</h2>
+
+        <div class="depoimentos-grid">
+          <article class="depoimento-card">
+            <div class="depoimento-estrelas" aria-hidden="true">
+              <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+            </div>
+            <p class="depoimento-texto">"Melhor barbearia que já fui. O agendamento pelo site é super prático e nunca preciso esperar."</p>
+            <p class="depoimento-autor">— Lucas Ferreira</p>
+          </article>
+
+          <article class="depoimento-card">
+            <div class="depoimento-estrelas" aria-hidden="true">
+              <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+            </div>
+            <p class="depoimento-texto">"Ambiente muito bom e o Diego é fera nos degradês. Sempre saio satisfeito."</p>
+            <p class="depoimento-autor">— Marcos Paulo</p>
+          </article>
+
+          <article class="depoimento-card">
+            <div class="depoimento-estrelas" aria-hidden="true">
+              <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+            </div>
+            <p class="depoimento-texto">"Atendimento impecável, do agendamento ao corte. Virei cliente fixo."</p>
+            <p class="depoimento-autor">— Rodrigo Santos</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCALIZAÇÃO -->
+    <section id="localizacao" class="section localizacao fade-in">
+      <div class="container localizacao-grid">
+        <div>
+          <h2 class="section-title">Localização &amp; Horário</h2>
+
+          <ul class="info-list">
+            <li><i data-lucide="map-pin"></i> Rua Augusta, 1200 — Consolação, São Paulo — SP</li>
+            <li><i data-lucide="phone"></i> (11) 99999-9999</li>
+          </ul>
+
+          <h3 class="horario-titulo">Horário de funcionamento</h3>
+          <ul class="horario-list">
+            <li><span>Segunda a sexta</span><span>09:00 – 19:00</span></li>
+            <li><span>Sábado</span><span>09:00 – 19:00</span></li>
+            <li><span>Domingo</span><span>Fechado</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="mapa-wrapper">
+            <iframe
+              title="Mapa de localização da Franc Barber"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-46.6650%2C-23.5620%2C-46.6450%2C-23.5480&layer=mapnik&marker=-23.5550,-46.6550"
+              loading="lazy"
+            ></iframe>
+          </div>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Rua+Augusta%2C+1200+-+Consola%C3%A7%C3%A3o%2C+S%C3%A3o+Paulo+-+SP"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-accent btn-block mapa-cta"
+          >
+            <i data-lucide="map-pin"></i>
+            Ver no Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#hero" class="logo">FRANC<span>BARBER</span></a>
+
+      <div class="footer-social">
+        <!-- TODO: substituir pelos links reais das redes sociais da barbearia -->
+        <!-- Instagram e Facebook usam SVG inline porque o pacote Lucide não inclui ícones de marca -->
+        <a href="https://instagram.com/francbarber" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="https://facebook.com/francbarber" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+          </svg>
+        </a>
+        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
+      </div>
+
+      <p>&copy; <span id="year"></span> Franc Barber. Projeto fictício criado para fins de portfólio.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="agendamento.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
