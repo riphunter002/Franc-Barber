@@ -58,6 +58,7 @@ input { font: inherit; }
 
 .section {
   padding-block: 64px;
+  scroll-margin-top: 88px; /* evita que o header fixo cubra o título ao navegar por âncora (#agendamento etc.) */
 }
 
 .section-title {
